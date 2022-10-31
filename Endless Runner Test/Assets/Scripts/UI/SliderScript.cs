@@ -11,6 +11,7 @@ public class SliderScript : MonoBehaviour
     [HideInInspector] public Color color;
     [HideInInspector] public float maxValue;
     [HideInInspector] public string name;
+    [HideInInspector] public float positionY;
 
     private Slider _slider;
 
