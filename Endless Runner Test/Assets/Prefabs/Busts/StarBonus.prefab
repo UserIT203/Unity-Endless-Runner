@@ -100,6 +100,7 @@ MonoBehaviour:
   sliderColor: {r: 1, g: 0.7260653, b: 0, a: 1}
   lifeTime: 10
   bonusName: star
+  bonusSprite: {fileID: 21300000, guid: d35b59407bee7f047a93fef855e7e03c, type: 3}
 --- !u!1 &3316980265475210621
 GameObject:
   m_ObjectHideFlags: 0

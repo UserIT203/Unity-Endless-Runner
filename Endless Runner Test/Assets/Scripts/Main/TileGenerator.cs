@@ -42,7 +42,7 @@ public class TileGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerTransform.position.z  - 100 > spawnPos - (startTileCount * tileLenght))
+        if (playerTransform.position.z  - 50 > spawnPos - (startTileCount * tileLenght))
         {
             SpawnTile(Random.Range(0, tilePrefabs.Length));
             DeleteTile();

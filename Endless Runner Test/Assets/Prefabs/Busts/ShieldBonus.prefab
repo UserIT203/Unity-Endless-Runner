@@ -256,3 +256,4 @@ MonoBehaviour:
   sliderColor: {r: 0.12068939, g: 0, b: 1, a: 1}
   lifeTime: 10
   bonusName: shield
+  bonusSprite: {fileID: 21300000, guid: 14f28f9c689a18c4c9f323dc4047b679, type: 3}

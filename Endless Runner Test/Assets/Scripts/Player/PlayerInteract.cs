@@ -50,7 +50,7 @@ public class PlayerInteract : MonoBehaviour
     {
         if (other.gameObject.tag == "Coin")
         {
-            coinsCount += 1;
+            coinsCount += 1 * playerBonus.moneyMulti;
             PlayerPrefs.SetInt("coins", coinsCount);
 
             coinsCountText.text = coinsCount.ToString();
@@ -61,7 +61,7 @@ public class PlayerInteract : MonoBehaviour
         if (other.gameObject.tag == "BonusStar")
         {
             Coin bonus = other.GetComponentInChildren<Coin>();
-            sliderManager.CreateSlider(bonus.lifeTime, bonus.sliderColor, bonus.bonusName);
+            sliderManager.CreateSlider(bonus.lifeTime, bonus.sliderColor, bonus.bonusName, bonus.bonusSprite);
 
             if (playerBonus.starCor != null)
                 StopCoroutine(playerBonus.starCor);
@@ -73,12 +73,24 @@ public class PlayerInteract : MonoBehaviour
         if (other.gameObject.tag == "BonusShield")
         {
             Coin bonus = other.GetComponentInChildren<Coin>();
-            sliderManager.CreateSlider(bonus.lifeTime, bonus.sliderColor, bonus.bonusName);
+            sliderManager.CreateSlider(bonus.lifeTime, bonus.sliderColor, bonus.bonusName, bonus.bonusSprite);
 
             if (playerBonus.shieldCor != null)
                 StopCoroutine(playerBonus.shieldCor);
 
             playerBonus.shieldCor = StartCoroutine(playerBonus.ShieldBonus(bonus.lifeTime));
+            Destroy(other.gameObject);
+        }
+
+        if (other.gameObject.tag == "MoneyBonus")
+        {
+            Coin bonus = other.GetComponentInChildren<Coin>();
+            sliderManager.CreateSlider(bonus.lifeTime, bonus.sliderColor, bonus.bonusName, bonus.bonusSprite);
+
+            if (playerBonus.moneyMultidCor != null)
+                StopCoroutine(playerBonus.moneyMultidCor);
+
+            playerBonus.moneyMultidCor = StartCoroutine(playerBonus.MoneyBonus(bonus.lifeTime));
             Destroy(other.gameObject);
         }
     }

@@ -8,6 +8,7 @@ TagManager:
   - Coin
   - BonusStar
   - BonusShield
+  - MoneyBonus
   layers:
   - Default
   - TransparentFX

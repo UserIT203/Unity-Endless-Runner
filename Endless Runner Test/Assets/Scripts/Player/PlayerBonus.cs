@@ -6,15 +6,18 @@ public class PlayerBonus : MonoBehaviour
 {
     [SerializeField] private Score scoreScripts;
 
+    [HideInInspector] public int moneyMulti = 1;
     public bool isImmortal;
 
     [HideInInspector] public Coroutine starCor;
     [HideInInspector] public Coroutine shieldCor;
+    [HideInInspector] public Coroutine moneyMultidCor;
 
     // Start is called before the first frame update
     void Start()
     {
         isImmortal = false;
+        moneyMulti = 1;
     }
 
 
@@ -38,6 +41,16 @@ public class PlayerBonus : MonoBehaviour
         shieldCor = null;
     }
 
+
+    public IEnumerator MoneyBonus(float lifetime)
+    {
+        moneyMulti = 2;
+
+        yield return new WaitForSeconds(lifetime);
+
+        moneyMulti = 1;
+        moneyMultidCor = null;
+    }
     private void Update()
     {
 

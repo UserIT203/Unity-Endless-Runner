@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class SliderScript : MonoBehaviour
 {
     [SerializeField] private Image line;
+    public Image image;
     private SliderManager sliderManager;
 
     [HideInInspector] public Color color;
@@ -22,7 +23,7 @@ public class SliderScript : MonoBehaviour
     {
         gameObject.name += "_" + name;
 
-        _slider = GetComponent<Slider>();
+        _slider = GetComponentInChildren<Slider>();
         _slider.maxValue = maxValue;
         _slider.value = maxValue;
 

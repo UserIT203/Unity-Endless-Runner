@@ -535,6 +535,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreScripts: {fileID: 2091158872}
+  moneyMulti: 1
   isImmortal: 0
 --- !u!114 &401688237
 MonoBehaviour:
@@ -696,7 +697,7 @@ MonoBehaviour:
   - {fileID: 625436868811747905, guid: 5e05b6122562ce14a86a3e22da9aec24, type: 3}
   - {fileID: 2318552716272892913, guid: f4464cc1673c2a949b6ecee9a35b8d3f, type: 3}
   - {fileID: 7299242557780097431, guid: 1d1e7e80953448042a0dc39a4b2f82b2, type: 3}
-  startTileCount: 6
+  startTileCount: 15
   playerTransform: {fileID: 401688234}
 --- !u!4 &475006718
 Transform:
@@ -1448,7 +1449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba32dbc4758484e46ba550bd99ace2f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sliderPrefab: {fileID: 2036087981093524822, guid: 01060643e02f7e04bb84c55293dbba74, type: 3}
+  sliderPrefab: {fileID: 7466226548162956520, guid: a35f0e7c73a2a044ea7064c8940eb2e3, type: 3}
   panel: {fileID: 1132323041}
   slidersObj: []
 --- !u!4 &1513806984

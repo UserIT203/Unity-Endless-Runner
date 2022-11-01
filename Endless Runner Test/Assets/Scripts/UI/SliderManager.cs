@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SliderManager : MonoBehaviour
 {
@@ -21,7 +22,7 @@ public class SliderManager : MonoBehaviour
         else
         {
             float currentPositioY = slidersObj[^1].GetComponent<SliderScript>().positionY;
-            if (panelSize.rect.height / 2 - currentPositioY <= 40)
+            if (panelSize.rect.height / 2 - currentPositioY <= 50)
             {
                 positionY = currentPositioY - sliderSize.rect.height - 10;
             }
@@ -32,7 +33,7 @@ public class SliderManager : MonoBehaviour
         }
     }
 
-    public void CreateSlider(float lifeTime, Color sliderColor, string sliderName)
+    public void CreateSlider(float lifeTime, Color sliderColor, string sliderName, Sprite sprite)
     {
         PositionSliderBonus();
 
@@ -42,11 +43,12 @@ public class SliderManager : MonoBehaviour
                sliderPrefab.transform.position = new Vector3(20, positionY, 0),
                Quaternion.identity) as GameObject;
 
-            SliderScript componentsSlider = newSliderObj.GetComponent<SliderScript>();
+            SliderScript componentsSlider = newSliderObj.GetComponentInChildren<SliderScript>();
             componentsSlider.maxValue = lifeTime;
             componentsSlider.color = sliderColor;
             componentsSlider.name = sliderName;
             componentsSlider.positionY = this.positionY;
+            componentsSlider.image.sprite = sprite;
 
             componentsSlider.transform.SetParent(panel.transform, false);
             componentsSlider.transform.SetSiblingIndex(0);
