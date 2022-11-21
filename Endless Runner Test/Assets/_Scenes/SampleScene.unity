@@ -518,7 +518,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 8338256248241688608}
-  speed: 0
+  speed: 30
   jumpForce: 15
   gravity: -25
   lineDistance: 6
