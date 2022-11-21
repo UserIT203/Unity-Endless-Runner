@@ -48,6 +48,8 @@ public class SliderScript : MonoBehaviour
 
             sliderManager.slidersObj.RemoveAt(index);
             Destroy(this.gameObject);
+
+            sliderManager.ChangePositionBonus();
         }
             
     }

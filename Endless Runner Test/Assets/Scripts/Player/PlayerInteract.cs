@@ -7,6 +7,7 @@ public class PlayerInteract : MonoBehaviour
 {
     [SerializeField] private Score scoreScripts;
     [SerializeField] private SliderManager sliderManager;
+    [SerializeField] private Animator playerAnim;
     private PlayerBonus playerBonus;
 
     [Header("UI Links")]
@@ -37,9 +38,13 @@ public class PlayerInteract : MonoBehaviour
             }
             else
             {
-                losePanel.SetActive(true);
-                Time.timeScale = 0;
+                GameObject.Find("Score Text").GetComponent<Score>().enabled = false;
+                this.gameObject.GetComponent<CapsuleCollider>().enabled = false;
+                this.gameObject.GetComponent<PlayerController>().enabled = false;
+                playerAnim.SetTrigger("isFall");
+                this.transform.position = new Vector3(transform.position.x, 1f, transform.position.z);
 
+                losePanel.SetActive(true);
                 int lastRunSscore = int.Parse(scoreScripts.scoreText.text);
                 PlayerPrefs.SetInt("lastRunScore", lastRunSscore);
             }

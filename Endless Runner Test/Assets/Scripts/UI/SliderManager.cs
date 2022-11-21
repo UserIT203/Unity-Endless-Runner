@@ -11,55 +11,44 @@ public class SliderManager : MonoBehaviour
     [HideInInspector] public List<GameObject> slidersObj = new List<GameObject>();
     private GameObject currentSliderObj;
 
-    private float positionY;
-    private void PositionSliderBonus()
-    {
-        var panelSize = panel.transform as RectTransform;
-        var sliderSize = sliderPrefab.transform as RectTransform;
+    [Header("Const Positions")]
+    public float[] constPositionX;
+    public float[] constPositionY;
 
-        if (slidersObj.Count == 0)
-            positionY = panelSize.rect.height / 2 - sliderSize.rect.height;
-        else
-        {
-            float currentPositioY = slidersObj[^1].GetComponent<SliderScript>().positionY;
-            if (panelSize.rect.height / 2 - currentPositioY <= 50)
-            {
-                positionY = currentPositioY - sliderSize.rect.height - 10;
-            }
-            else
-            {
-                positionY = currentPositioY + sliderSize.rect.height + 10;
-            }           
-        }
-    }
 
     public void CreateSlider(float lifeTime, Color sliderColor, string sliderName, Sprite sprite)
     {
-        PositionSliderBonus();
 
         if (CheclSkiders(sliderName))
         {
             GameObject newSliderObj = Instantiate(sliderPrefab,
-               sliderPrefab.transform.position = new Vector3(20, positionY, 0),
+               sliderPrefab.transform.position = new Vector3(constPositionX[slidersObj.Count], constPositionY[slidersObj.Count], 0),
                Quaternion.identity) as GameObject;
 
             SliderScript componentsSlider = newSliderObj.GetComponentInChildren<SliderScript>();
             componentsSlider.maxValue = lifeTime;
             componentsSlider.color = sliderColor;
             componentsSlider.name = sliderName;
-            componentsSlider.positionY = this.positionY;
             componentsSlider.image.sprite = sprite;
 
             componentsSlider.transform.SetParent(panel.transform, false);
             componentsSlider.transform.SetSiblingIndex(0);
 
-            slidersObj.Insert(slidersObj.Count, newSliderObj);
+            slidersObj.Add(newSliderObj);
         }
         else
         {
             currentSliderObj.GetComponent<SliderScript>().SetValue(lifeTime);
         }
 
+    }
+
+    public void ChangePositionBonus()
+    {
+        for (int i = 0; i < slidersObj.Count; i++)
+        {
+            slidersObj[i].transform.localPosition = new Vector3(constPositionX[i], constPositionY[i], 0);
+        }
     }
 
     private bool CheclSkiders(string _name)
