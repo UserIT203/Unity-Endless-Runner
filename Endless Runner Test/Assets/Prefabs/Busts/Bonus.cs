@@ -10,6 +10,9 @@ public class Bonus : MonoBehaviour
     public string bonusName;
 
     public Sprite bonusSprite;
+    [Header("Effect Options")]
+    public GameObject takeEffeck;
+    public Color effectColor;
 
     private void Update()
     {

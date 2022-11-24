@@ -223,3 +223,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3a08b31d5f86de4b9e7b61a85d7c06b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sliderColor: {r: 1, g: 0.8533219, b: 0, a: 0.5254902}
+  lifeTime: 0
+  bonusName: 
+  bonusSprite: {fileID: 0}
+  takeEffeck: {fileID: 5168367057123091151, guid: 0b184ec2d4f232e459c9dacd4e037f66, type: 3}
+  effectColor: {r: 0.9988179, g: 1, b: 0, a: 0.60784316}

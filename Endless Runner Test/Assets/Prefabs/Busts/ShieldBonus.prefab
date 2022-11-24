@@ -257,3 +257,5 @@ MonoBehaviour:
   lifeTime: 10
   bonusName: shield
   bonusSprite: {fileID: 21300000, guid: 14f28f9c689a18c4c9f323dc4047b679, type: 3}
+  takeEffeck: {fileID: 5168367057123091151, guid: 0b184ec2d4f232e459c9dacd4e037f66, type: 3}
+  effectColor: {r: 0, g: 0.17071056, b: 1, a: 0.60784316}

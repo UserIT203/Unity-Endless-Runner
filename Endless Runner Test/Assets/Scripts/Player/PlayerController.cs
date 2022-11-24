@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     private CharacterController controller;
+    private StartGame startGame;
     private CapsuleCollider capsule;
     [SerializeField] private Animator anim;
 
@@ -24,10 +25,9 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        startGame = GetComponent<StartGame>();
         controller = GetComponent<CharacterController>();
         capsule = GetComponent<CapsuleCollider>();
-
-        StartCoroutine(SpeedIncrease());
     }
 
     private void Jump()
@@ -45,8 +45,15 @@ public class PlayerController : MonoBehaviour
         controller.Move(dir * Time.deltaTime);
     }
 
+    Coroutine speedPlus;
     private void Update()
     {
+        if (startGame != true)
+            return;
+
+        if (speedPlus == null)
+            speedPlus = StartCoroutine(SpeedIncrease());
+
         if (SwipeController.swipeRight)
         {
             if (lineToMove < 2)
